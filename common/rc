@@ -707,7 +707,7 @@ _scratch_cleanup_files()
 		# Avoid rm -rf /* if we messed up
 		[ -n "$OVL_BASE_SCRATCH_MNT" ] || return 1
 		_overlay_base_scratch_mount || return 1
-		rm -rf $OVL_BASE_SCRATCH_MNT/* || return 1
+		_overlay_cleanup_dirs $OVL_BASE_SCRATCH_MNT || return 1
 		_overlay_mkdirs $OVL_BASE_SCRATCH_MNT
 		# leave base fs mouted so tests can setup lower/upper dir files
 		;;

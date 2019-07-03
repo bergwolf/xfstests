@@ -37,6 +37,16 @@ _overlay_scratch_mount_dirs()
 				$* $OVL_BASE_SCRATCH_MNT $SCRATCH_MNT
 }
 
+_overlay_cleanup_dirs()
+{
+	local dir=$1
+
+	rm -rf $dir/$OVL_UPPER/*
+	rm -rf $dir/$OVL_LOWER/*
+	rm -rf $dir/$OVL_WORK/*
+	rm -rf $dir/$OVL_MNT/*
+}
+
 _overlay_mkdirs()
 {
 	local dir=$1
